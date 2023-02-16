@@ -58,12 +58,12 @@ class GoPremium extends StatelessWidget {
             bottom: 15,
             right: 15,
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.blueAccent,
                 borderRadius: BorderRadius.circular(15)
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_forward,
                 color: Colors.white,
               ),

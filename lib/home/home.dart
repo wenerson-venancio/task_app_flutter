@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:task_app/home/widgets/tasks.dart';
 
 import 'widgets/go_premium.dart';
 
@@ -23,10 +24,63 @@ class HomePage extends StatelessWidget {
               'Tasks',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
-          )
+          ),
+          Expanded(child: Tasks())
         ],
       ),
+      bottomNavigationBar: _buildBottomNavigatorBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50)
+        ),
+        elevation: 0,
+        backgroundColor: Colors.black,
+        onPressed: () {},
+        child: Icon(Icons.add, size: 35,),
+      ),
     );
+  }
+
+  Widget _buildBottomNavigatorBar() {
+    return Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 5,
+                  blurRadius: 10)
+            ]),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+          child: BottomNavigationBar(
+              backgroundColor: Colors.white,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              selectedItemColor: Colors.blueAccent,
+              unselectedItemColor: Colors.grey.withOpacity(0.5),
+              items: const [
+                BottomNavigationBarItem(
+                    label: 'Home',
+                    icon: Icon(
+                      Icons.home_rounded,
+                      size: 30,
+                    )),
+                BottomNavigationBarItem(
+                    label: 'Home',
+                    icon: Icon(
+                      Icons.person_rounded,
+                      size: 30,
+                    )),
+              ]),
+        ));
   }
 
   AppBar _buildAppBar() {
